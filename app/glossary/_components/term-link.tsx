@@ -81,7 +81,12 @@ export function TermLink({ termName }: TermLinkProps) {
         >
           <p className="font-semibold text-foreground mb-1">{matched.term}</p>
           <p className="text-muted-foreground leading-relaxed text-xs line-clamp-4">
-            {(matched.textLv1 ?? matched.textLv2)?.replace(/\[[^\]]+\]/g, (m) => m.slice(1, -1))}
+            {(matched.difficulty === 3
+              ? (matched.textLv3 ?? matched.textLv2 ?? matched.textLv1)
+              : matched.difficulty === 2
+              ? (matched.textLv2 ?? matched.textLv1)
+              : matched.textLv1
+            )?.replace(/\[[^\]]+\]/g, (m) => m.slice(1, -1))}
           </p>
           <Link
             href={`/glossary/term/${matched.slug}`}
