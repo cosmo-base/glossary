@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react"
 import Link from "next/link"
-import { Search, BookOpen, ChevronRight, ArrowUpDown } from "lucide-react"
+import { Search, BookOpen, ChevronRight, ArrowUpDown, RotateCcw } from "lucide-react"
 import { StarBackground } from "@/components/star-background"
 import { SiteHeader } from "@/components/site-header"
 import { Input } from "@/components/ui/input"
@@ -194,6 +194,24 @@ export default function GlossaryIndex({ terms }: GlossaryIndexProps) {
               </button>
             ))}
           </div>
+
+          {/* Reset button */}
+          {(query || selectedCategory || selectedDifficulty || selectedKana) && (
+            <div className="flex justify-end">
+              <button
+                onClick={() => {
+                  setQuery("")
+                  setSelectedCategory("")
+                  setSelectedDifficulty(0)
+                  setSelectedKana("")
+                }}
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border border-border/60 bg-card/40 text-muted-foreground hover:text-foreground hover:border-border transition-colors"
+              >
+                <RotateCcw className="w-3 h-3" />
+                絞り込みをリセット
+              </button>
+            </div>
+          )}
 
           {/* Sort mode toggle */}
           <div className="flex items-center gap-2">
