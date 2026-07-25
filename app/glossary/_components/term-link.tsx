@@ -61,7 +61,7 @@ export function TermLink({ termName }: TermLinkProps) {
     <span ref={wrapperRef} className="relative inline-block">
       {/* Term link — hover opens tooltip, click navigates */}
       <Link
-        href={`/glossary/term/${matched.slug}`}
+        href={`/${matched.slug}`}
         className="text-primary border-b border-dashed border-primary/60 hover:text-primary/80 transition-colors"
         onMouseEnter={handleEnter}
         onMouseLeave={scheduleHide}
@@ -89,7 +89,7 @@ export function TermLink({ termName }: TermLinkProps) {
             )?.replace(/\[[^\]]+\]/g, (m) => m.slice(1, -1))}
           </p>
           <Link
-            href={`/glossary/term/${matched.slug}`}
+            href={`/${matched.slug}`}
             className="mt-2 flex items-center gap-1 text-xs text-primary hover:underline"
             onClick={() => setOpen(false)}
           >
