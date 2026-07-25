@@ -72,7 +72,15 @@ export default function GlossaryIndex({ terms }: GlossaryIndexProps) {
   }, [terms, query, selectedCategory, selectedDifficulty, selectedKana])
 
   const sortedByKana = useMemo(
-    () => [...filtered].sort((a, b) => a.kana.localeCompare(b.kana, "ja")),
+    () =>
+      [...filtered].sort((a, b) => {
+        const aIsAZ = /^[a-zA-Z]/.test(a.term)
+        const bIsAZ = /^[a-zA-Z]/.test(b.term)
+        if (aIsAZ && bIsAZ) return a.term.localeCompare(b.term, "en", { sensitivity: "base" })
+        if (aIsAZ) return 1
+        if (bIsAZ) return -1
+        return a.kana.localeCompare(b.kana, "ja")
+      }),
     [filtered]
   )
 

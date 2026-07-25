@@ -18,7 +18,7 @@ function buildTermMap(texts: (string | undefined)[], terms: GlossaryTerm[]): Ter
     const nameHit = mentioned.has(t.term)
     const aliasHit = t.aliases?.some((a) => mentioned.has(a)) ?? false
     if (nameHit || aliasHit) {
-      const entry = { slug: t.slug, term: t.term, textLv1: t.textLv1, textLv2: t.textLv2 }
+      const entry = { slug: t.slug, term: t.term, difficulty: t.difficulty, textLv1: t.textLv1, textLv2: t.textLv2, textLv3: t.textLv3 }
       map[t.term] = entry
       for (const alias of t.aliases ?? []) {
         if (mentioned.has(alias)) map[alias] = entry
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const term = getTermBySlug(terms, slug)
   if (!term) return { title: "用語が見つかりません" }
   return {
-    title: `${term.term}（${term.english}）`,
+    title: `${term.term} | Cosmo Base宇宙用語集`,
     description: term.textLv1?.replace(/\[[^\]]+\]/g, (m) => m.slice(1, -1)).slice(0, 120),
   }
 }
