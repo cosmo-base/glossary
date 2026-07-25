@@ -37,7 +37,7 @@ export function SiteHeader() {
 
               <li>
                 <a
-                  href="https://cosmo-base.jp"
+                  href="https://fsifofficial.github.io/CosmoBase/"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
