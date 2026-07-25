@@ -46,7 +46,7 @@ export function TermDetail({ term, relatedGroups, termMap }: TermDetailProps) {
     <div className="space-y-6">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-        <Link href="/glossary" className="flex items-center gap-1 hover:text-primary transition-colors">
+        <Link href="/" className="flex items-center gap-1 hover:text-primary transition-colors">
           <ChevronLeft className="w-4 h-4" />
           宇宙用語集
         </Link>
@@ -154,7 +154,7 @@ export function TermDetail({ term, relatedGroups, termMap }: TermDetailProps) {
 function TermChip({ term }: { term: GlossaryTerm }) {
   return (
     <Link
-      href={`/glossary/term/${term.slug}`}
+      href={`/${term.slug}`}
       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm border border-border/50 bg-card/40 text-foreground hover:text-primary hover:border-primary/40 transition-colors"
     >
       {term.term}

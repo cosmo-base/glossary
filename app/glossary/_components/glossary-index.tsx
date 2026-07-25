@@ -315,7 +315,7 @@ export default function GlossaryIndex({ terms }: GlossaryIndexProps) {
 function TermCard({ term }: { term: GlossaryTerm }) {
   return (
     <Link
-      href={`/glossary/term/${term.slug}`}
+      href={`/${term.slug}`}
       className="glass-card rounded-xl p-4 group block transition-all duration-200 hover:scale-[1.02]"
     >
       <div className="flex items-start justify-between gap-2 mb-2">
