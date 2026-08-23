@@ -5,8 +5,7 @@ import type {
   GlossaryStatus,
 } from "@/data/glossary"
 
-const SHEET_CSV_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vREYAYZ8Rj2WMeCdvOleh8xoWlPlA5UZ5Ijr3SVxhxe_FAafTUHkQiPfWpHDGYM6rsahZOio82umrY6/pub?gid=0&single=true&output=csv"
+const SHEET_CSV_URL = process.env.GLOSSARY_CSV_URL ?? ""
 
 function parseDifficulty(val: string): DifficultyLevel {
   if (val.startsWith("★★★")) return 3

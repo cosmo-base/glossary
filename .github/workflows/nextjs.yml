@@ -35,6 +35,8 @@ jobs:
 
       - name: Build with Next.js
         run: npm run build
+        env:
+          GLOSSARY_CSV_URL: ${{ secrets.GLOSSARY_CSV_URL }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
