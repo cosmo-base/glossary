@@ -178,13 +178,13 @@ export default function GlossaryIndex({ terms }: GlossaryIndexProps) {
           </div>
 
           {/* Difficulty filter */}
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {([0, 1, 2, 3] as const).map((d) => (
               <button
                 key={d}
                 onClick={() => setSelectedDifficulty(d === selectedDifficulty ? 0 : d)}
                 className={cn(
-                  "px-3 py-1 rounded-full text-xs font-medium border transition-colors",
+                  "px-3 py-1 rounded-full text-xs font-medium border transition-colors whitespace-nowrap",
                   selectedDifficulty === d
                     ? "bg-primary/20 text-primary border-primary/40"
                     : "bg-card/40 text-muted-foreground border-border/40 hover:border-border"
